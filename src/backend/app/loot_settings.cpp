@@ -44,6 +44,7 @@ LootSettings::LootSettings() :
       GameSettings(GameType::fo3),
       GameSettings(GameType::fonv),
       GameSettings(GameType::fo4),
+      GameSettings(GameType::tes5se),
       GameSettings(GameType::tes4, "Nehrim")
           .SetName("Nehrim - At Fate's Edge")
           .SetMaster("Nehrim.esm")
@@ -100,6 +101,9 @@ void LootSettings::load(YAML::Node& settings) {
 
     if (find(begin(gameSettings_), end(gameSettings_), GameSettings(GameType::fo4)) == end(gameSettings_))
       gameSettings_.push_back(GameSettings(GameType::fo4));
+
+    if (find(begin(gameSettings_), end(gameSettings_), GameSettings(GameType::tes5se)) == end(gameSettings_))
+      gameSettings_.push_back(GameSettings(GameType::tes5se));
   }
 
   if (settings["filters"])

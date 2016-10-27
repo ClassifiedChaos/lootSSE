@@ -53,6 +53,7 @@ TEST_F(LootSettingsTest, defaultConstructorShouldSetDefaultValues) {
       GameSettings(GameType::fo3),
       GameSettings(GameType::fonv),
       GameSettings(GameType::fo4),
+      GameSettings(GameType::tes5se),
       GameSettings(GameType::tes4, "Nehrim")
           .SetName("Nehrim - At Fate's Edge")
           .SetMaster("Nehrim.esm")
@@ -304,6 +305,7 @@ TEST_F(LootSettingsTest, loadingFromYamlShouldAddMissingBaseGames) {
       GameSettings(GameType::fo3),
       GameSettings(GameType::fonv),
       GameSettings(GameType::fo4),
+      GameSettings(GameType::tes5se),
   });
   EXPECT_EQ(expectedGameSettings, settings_.getGameSettings());
 }

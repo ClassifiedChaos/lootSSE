@@ -46,6 +46,7 @@ private:
     temp.push_back(GameSettings(GameType::fo3).FolderName());
     temp.push_back(GameSettings(GameType::fonv).FolderName());
     temp.push_back(GameSettings(GameType::fo4).FolderName());
+    temp.push_back(GameSettings(GameType::tes5se).FolderName());
 
     return JSON::stringify(temp);
   }

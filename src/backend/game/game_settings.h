@@ -124,6 +124,8 @@ struct convert<loot::GameSettings> {
       rhs = GameSettings(GameType::fonv, node["folder"].as<std::string>());
     else if (node["type"].as<std::string>() == GameSettings(GameType::fo4).FolderName())
       rhs = GameSettings(GameType::fo4, node["folder"].as<std::string>());
+    else if (node["type"].as<std::string>() == GameSettings(GameType::tes5se).FolderName())
+      rhs = GameSettings(GameType::tes5se, node["folder"].as<std::string>());
     else
       throw RepresentationException(node.Mark(), "bad conversion: invalid value for 'type' key in 'game settings' object");
 

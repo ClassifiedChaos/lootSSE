@@ -49,10 +49,16 @@ GameSettings::GameSettings(const GameType gameCode, const std::string& folder) :
     lootFolderName_ = "Oblivion";
     masterFile_ = "Oblivion.esm";
     repositoryURL_ = "https://github.com/loot/oblivion.git";
-  } else if (Type() == GameType::tes5) {
-    name_ = "TES V: Skyrim";
-    registryKey_ = "Software\\Bethesda Softworks\\Skyrim\\Installed Path";
-    lootFolderName_ = "Skyrim";
+  } else if (Type() == GameType::tes5 || Type() == GameType::tes5se) {
+    if (Type() == GameType::tes5) {
+      name_ = "TES V: Skyrim";
+      registryKey_ = "Software\\Bethesda Softworks\\Skyrim\\Installed Path";
+      lootFolderName_ = "Skyrim";
+    } else {
+      name_ = "TES V: Skyrim Special Edition";
+      registryKey_ = "Software\\Bethesda Softworks\\Skyrim Special Edition\\Installed Path";
+      lootFolderName_ = "SkyrimSE";
+    }
     masterFile_ = "Skyrim.esm";
     repositoryURL_ = "https://github.com/loot/skyrim.git";
   } else if (Type() == GameType::fo3) {
@@ -122,7 +128,7 @@ GameType GameSettings::Type() const {
 libespm::GameId GameSettings::LibespmId() const {
   if (type_ == GameType::tes4)
     return libespm::GameId::OBLIVION;
-  else if (type_ == GameType::tes5)
+  else if (type_ == GameType::tes5 || type_ == GameType::tes5se)
     return libespm::GameId::SKYRIM;
   else if (type_ == GameType::fo3)
     return libespm::GameId::FALLOUT3;

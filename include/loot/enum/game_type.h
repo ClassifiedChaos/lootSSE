@@ -42,6 +42,8 @@ enum struct GameType : unsigned int {
   fonv,
   /** Fallout 4 */
   fo4,
+  /** The Elder Scrolls IV: Skyrim Special Edition */
+  tes5se,
 };
 }
 
